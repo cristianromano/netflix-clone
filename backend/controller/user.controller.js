@@ -1,5 +1,5 @@
 import User from "../models/user.model.js";
-
+import { generateToken } from "../lib/token.js";
 import bcrypt from "bcryptjs";
 
 export const signUp = async (req, res) => {
@@ -32,8 +32,12 @@ export const signUp = async (req, res) => {
       image: profilePic,
     });
 
+    const token = generateToken(newUser, res);
+
     await newUser.save();
-    res.status(201).json({ message: "User created successfully", newUser });
+    res
+      .status(201)
+      .json({ message: "User created successfully", newUser, token });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
