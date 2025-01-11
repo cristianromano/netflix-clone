@@ -23,8 +23,9 @@ export const signUp = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const PROFILE_PIC = ["/avatar1.png", "/avatar2.png", "/avatar3.png"];
-    const random = Math.floor(Math.random() * PROFILE_PIC.length - 1);
+    const random = Math.floor(Math.random() * 3);
     const profilePic = PROFILE_PIC[random];
+
     const newUser = new User({
       username,
       email,
@@ -46,15 +47,24 @@ export const signUp = async (req, res) => {
 export const signIn = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.find({ email }).select("+password");
+    const user = await User.findOne({ email }).select("+password");
     if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
-    const validPassword = await bcrypt.compare(password, user[0].password);
+    const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword)
       return res.status(400).json({ message: "Invalid credentials" });
 
-    const token = generateToken(user[0], res);
-    res.status(200).json({ message: "Signin successfully", user, token });
+    const token = generateToken(user, res);
+    res.status(200).json({
+      message: "Signin successfully",
+      user: {
+        _id: user._id,
+        username: user.username,
+        email: user.email,
+        image: user.image,
+      },
+      token,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -64,6 +74,15 @@ export const signOut = async (req, res) => {
   try {
     res.clearCookie("token");
     res.status(200).json({ message: "Signout successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
