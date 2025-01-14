@@ -15,6 +15,15 @@ export const getPopularMovies = async (req, res) => {
   }
 };
 
+/**
+ * Fetches a trending movie from the Movie Database API and returns a random movie from the results.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves to void.
+ * @throws {Error} - If there is an error fetching data from the Movie Database API.
+ */
+
 export const getTrendingMovie = async (req, res) => {
   try {
     const data = await fetchFromMovieDB(

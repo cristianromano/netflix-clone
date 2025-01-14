@@ -2,6 +2,16 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
 dotenv.config();
+/**
+ * Generates a JWT token for the given user and sets it as a cookie in the response.
+ *
+ * @param {Object} user - The user object.
+ * @param {string} user._id - The unique identifier of the user.
+ * @param {Object} res - The response object.
+ * @param {Function} res.cookie - Function to set a cookie in the response.
+ * @returns {string} The generated JWT token.
+ */
+
 export const generateToken = (user, res) => {
   const token = jwt.sign(
     {
@@ -21,8 +31,4 @@ export const generateToken = (user, res) => {
   });
 
   return token;
-};
-
-export const verifyToken = (token) => {
-  return jwt.verify(token, process.env.JWT_SECRET);
 };

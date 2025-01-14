@@ -15,6 +15,16 @@ export const getPopularTvShows = async (req, res) => {
   }
 };
 
+/**
+ * Fetches a random trending TV show from The Movie Database (TMDb) and sends it in the response.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when the response is sent.
+ *
+ * @throws {Error} - If there is an error fetching data from TMDb or sending the response.
+ */
+
 export const getTrendingTvShows = async (req, res) => {
   try {
     const data = await fetchFromMovieDB(

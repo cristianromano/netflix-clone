@@ -2,6 +2,20 @@ import User from "../models/user.model.js";
 import { generateToken } from "../lib/token.js";
 import bcrypt from "bcryptjs";
 
+/**
+ * Handles user sign-up.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} req.body - The request body.
+ * @param {string} req.body.username - The username of the new user.
+ * @param {string} req.body.email - The email of the new user.
+ * @param {string} req.body.password - The password of the new user.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves to void.
+ *
+ * @throws {Error} - If there is an error during the sign-up process.
+ */
+
 export const signUp = async (req, res) => {
   try {
     const { username, email, password } = req.body;
