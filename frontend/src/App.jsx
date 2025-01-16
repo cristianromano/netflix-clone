@@ -1,9 +1,17 @@
+import { Routes, Route } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+import { LoginPage } from "./pages/LoginPage";
+import { SignUpPage } from "./pages/SignUpPage";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <h1 className="bg-slate-700 text-gray-200">Hello</h1>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<SignUpPage />} />
+      </Routes>
     </>
   );
 }
