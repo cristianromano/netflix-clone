@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useAuthStore } from "../store/authStore";
+
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { login, isLoadingLogin } = useAuthStore();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    login({ email, password });
   };
 
   return (
@@ -42,7 +45,13 @@ export const LoginPage = () => {
                 type="submit"
                 className="w-full p-3 bg-red-600 text-white font-bold rounded"
               >
-                Ingresa
+                {isLoadingLogin ? (
+                  <div className="flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-white border-solid"></div>
+                  </div>
+                ) : (
+                  "Ingresar"
+                )}
               </button>
             </div>
             <div>

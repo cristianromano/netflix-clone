@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 import toast from "react-hot-toast";
+
 export const useAuthStore = create((set) => ({
   isLoadingRegister: false,
   isLoadingLogin: false,
@@ -56,10 +57,11 @@ export const useAuthStore = create((set) => ({
     try {
       const response = await axios.get("/api/v1/auth/authCheck");
       if (response.status === 200) {
-        set({ user: response.data.user });
+        set({ user: response.data.user, isCheckingAuth: false });
       }
     } catch (error) {
       console.error(error.response.data.message);
+      set({ user: null, isCheckingAuth: false });
     } finally {
       set({ isCheckingAuth: false });
     }
