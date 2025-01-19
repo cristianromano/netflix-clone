@@ -7,6 +7,7 @@ import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
 import { SignUpPage } from "./pages/SignUpPage";
 import { Loader } from "lucide-react";
+import { WatchPage } from "./pages/WatchPage";
 import "./App.css";
 
 function App() {
@@ -37,6 +38,10 @@ function App() {
         <Route
           path="/register"
           element={!user ? <SignUpPage /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/watch/:id"
+          element={user ? <WatchPage /> : <Navigate to={"/"} />}
         />
       </Routes>
       <Footer />

@@ -2,6 +2,7 @@ import { LogOut, Menu, Search } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
+import { useContentStore } from "../store/content";
 
 export const Navbar = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useState(false);
@@ -9,6 +10,8 @@ export const Navbar = () => {
   const handleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const { setContent } = useContentStore();
 
   return (
     <header className="max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20">
@@ -22,14 +25,26 @@ export const Navbar = () => {
         </Link>
 
         <div className="hidden sm:flex gap-2 items-center">
-          <Link to={"/"} className="text-white hover:underline">
+          <Link
+            to={"/"}
+            className="text-white hover:underline"
+            onClick={() => {
+              setContent("movies");
+            }}
+          >
             Peliculas
           </Link>
-          <Link to={"/"} className=" text-white hover:underline">
+          <Link
+            to={"/"}
+            className=" text-white hover:underline"
+            onClick={() => {
+              setContent("tv");
+            }}
+          >
             Series
           </Link>
           <Link to={"/history"} className="text-white hover:underline">
-            Buscador
+            Historial
           </Link>
         </div>
       </div>
