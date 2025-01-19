@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { Footer } from "../../components/Footer";
 import { Link } from "react-router-dom";
+
 export const AuthScreen = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();

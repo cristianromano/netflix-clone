@@ -15,5 +15,5 @@ searchRouter.get("/movie/:query", protect, searchMovie);
 searchRouter.get("/tv/:query", protect, searchTv);
 searchRouter.get("/search-history", protect, getSearchHistory);
 searchRouter.patch("/history/clear", protect, clearSearchHistory);
-searchRouter.patch("/history/clear/:id", protect, clearItemFromSearchHistory);
+searchRouter.delete("/history/clear/:id", protect, clearItemFromSearchHistory);
 export default searchRouter;

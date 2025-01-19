@@ -10,11 +10,13 @@ import {
 import { useContentStore } from "../../store/content";
 import { MovieSlider } from "../../components/MovieSlider";
 import { useState } from "react";
+
 export const HomeScreen = () => {
   const { trendingContent } = useGetTrendingContent();
   const { content } = useContentStore();
 
   const { imageLoad, setImageLoad } = useState(true);
+
   if (!trendingContent) {
     return (
       <div className="h-screen flex justify-center items-center">
@@ -33,7 +35,6 @@ export const HomeScreen = () => {
         )}
         <img
           src={ORIGINAL_IMG_BASE_URL + trendingContent.backdrop_path}
-          alt="img"
           className="absolute top-0 left-0 w-full h-full object-cover "
           onLoad={() => setImageLoad(false)}
         />

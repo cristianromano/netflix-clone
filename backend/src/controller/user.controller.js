@@ -23,15 +23,15 @@ export const signUp = async (req, res) => {
     const validEmail = /\S+@\S+\.\S+/;
 
     if (!username || !email || !password)
-      return res.status(400).json({ message: "Please fill in all fields" });
+      return res.status(400).json({ message: "Complete todos los campos" });
     if (!validEmail.test(email))
-      return res.status(400).json({ message: "Invalid email" });
+      return res.status(400).json({ message: "email invalido" });
     if (password.length < 6)
       return res
         .status(400)
-        .json({ message: "Password must be at least 6 characters" });
+        .json({ message: "La contraseña debe tener mas de 6 caracteres" });
     const user = await User.find({ email });
-    if (!user) return res.status(400).json({ message: "User already exists" });
+    if (!user) return res.status(400).json({ message: "Usuario ya existe!" });
 
     const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -52,7 +52,7 @@ export const signUp = async (req, res) => {
     await newUser.save();
     res
       .status(201)
-      .json({ message: "User created successfully", newUser, token });
+      .json({ message: "Usuario creado exitosamente!", newUser, token });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
