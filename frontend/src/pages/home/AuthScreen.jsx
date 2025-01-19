@@ -76,7 +76,7 @@ export const AuthScreen = () => {
           {/* right side */}
           <div className="flex-1 relative">
             <img
-              src="/src/assets/tv.png"
+              src="/tv.png"
               alt="Imagen de TV"
               className="mt-4 z-20 relative"
             />
@@ -87,7 +87,7 @@ export const AuthScreen = () => {
               muted
               loop
             >
-              <source src="/src/assets/hero-vid.m4v" type="video/mp4" />
+              <source src="/hero-vid.m4v" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -103,7 +103,7 @@ export const AuthScreen = () => {
           <div className="flex-1 relative">
             <div className="relative">
               <img
-                src="/src/assets/stranger-things-lg.png"
+                src="/stranger-things-lg.png"
                 alt="Imagen de Stranger Things"
                 className="mt-4"
               />
@@ -114,7 +114,7 @@ export const AuthScreen = () => {
               "
               >
                 <img
-                  src="/src/assets/stranger-things-sm.png"
+                  src="/stranger-things-sm.png"
                   alt="imagen"
                   className="h-full"
                 />
@@ -128,11 +128,7 @@ export const AuthScreen = () => {
                     </span>
                   </div>
 
-                  <img
-                    src="/src/assets/download-icon.gif"
-                    alt=""
-                    className="h-12"
-                  />
+                  <img src="/download-icon.gif" alt="" className="h-12" />
                 </div>
               </div>
             </div>
@@ -171,7 +167,7 @@ export const AuthScreen = () => {
           {/* right side */}
           <div className="flex-1 relative overflow-hidden">
             <img
-              src="/src/assets/device-pile.png"
+              src="/device-pile.png"
               alt="Imagen de dispositivos"
               className="mt-4 z-20 relative"
             />
@@ -184,7 +180,7 @@ export const AuthScreen = () => {
               muted
               loop
             >
-              <source src="/src/assets/video-devices.m4v" type="video/mp4" />
+              <source src="/video-devices.m4v" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -201,11 +197,7 @@ export const AuthScreen = () => {
         >
           {/* left */}
           <div className="flex-1 relative">
-            <img
-              src="/src/assets/kids.png"
-              alt="Disfruta en tu TV"
-              className="mt-4"
-            />
+            <img src="/kids.png" alt="Disfruta en tu TV" className="mt-4" />
           </div>
           {/* right */}
           <div className="flex-1 text-center md:text-left">

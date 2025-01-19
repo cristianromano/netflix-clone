@@ -90,7 +90,7 @@ export const SearchHistoryPage = () => {
                 src={
                   entry.image
                     ? SMALL_IMG_BASE_URL + entry.image
-                    : "./src/assets/avatar1.png"
+                    : "./avatar1.png"
                 }
                 alt="History image"
                 className="size-16 rounded-full object-cover mr-4"

@@ -18,7 +18,7 @@ export const Navbar = () => {
       <div className="flex items-center gap-10 z-50">
         <Link to={"/"}>
           <img
-            src="/src/assets/netflix-logo.png"
+            src="/netflix-logo.png"
             alt="Netflix Logo"
             className="w-32 md:w-52"
           />
@@ -54,7 +54,7 @@ export const Navbar = () => {
           <Search className="size-6 cursor-pointer text-white" />
         </Link>
         <img
-          src={"/src/assets/" + user.image}
+          src={"/" + user.image}
           alt="user-img"
           className="h-8 rounded cursor-pointer"
         />
