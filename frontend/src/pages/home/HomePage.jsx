@@ -1,5 +1,5 @@
 import { useAuthStore } from "../../store/authStore";
-import { AuthScreen } from "./authScreen.jsx";
+import { AuthScreen } from "./authScreen";
 import { HomeScreen } from "./HomeScreen.jsx";
 
 export const HomePage = () => {
